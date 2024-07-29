@@ -1,9 +1,11 @@
 using System.Diagnostics;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using plataforma_educacional.Models;
 
 namespace plataforma_educacional.Controllers;
 
+[Authorize]
 public class HomeController : Controller
 {
     private readonly ILogger<HomeController> _logger;
@@ -18,6 +20,7 @@ public class HomeController : Controller
         return View();
     }
 
+    [AllowAnonymous]
     public IActionResult Privacy()
     {
         return View();
